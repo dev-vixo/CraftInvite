@@ -57,7 +57,7 @@ Cada invitación está vinculada a un **token único de 32 caracteres hex**, as�
 **1. Clona el repositorio**
 
 ```bash
-git clone https://github.com/tu-usuario/tu-repo.git
+git clone https://github.com/dev-vixo/CraftInvite.git
 ```
 
 Sube los archivos a la raíz de tu servidor web (public_html, www, htdocs, etc.) de modo que quede así:
