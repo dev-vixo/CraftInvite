@@ -10,6 +10,7 @@
 |  $$$$$$/| $$     |  $$$$$$$| $$       |  $$$$//$$$$$$| $$  | $$   \  $/   | $$  |  $$$$/|  $$$$$$$
  \______/ |__/      \_______/|__/        \___/ |______/|__/  |__/    \_/    |__/   \___/   \_______/                                                                                                                                                   
 ```
+</div>
 > Sistema de invitaciones personalizadas para servidores de Minecraft. Genera links únicos para cada jugador, con un visor 3D de su skin, la IP de tu servidor y un botón de Discord.
 
 <p align="center">
