@@ -93,16 +93,7 @@ $pass = 'tu_contraseña_db';
 $charset = 'utf8mb4';
 ```
 
-**4. Crea la carpeta de skins**
-
-```bash
-mkdir -p assets/skins
-chmod 755 assets/skins
-```
-
-Si usas hosting compartido con phpMyAdmin, crea la carpeta `skins` dentro de `assets/` desde el administrador de archivos de tu panel (cPanel, Plesk, etc.).
-
-**5. Cambia la contraseña del admin**
+**4. Cambia la contraseña del admin**
 
 Las credenciales por defecto que trae `vixodevs_tulacraft.sql` son:
 - **Usuario:** `Admin`
@@ -122,7 +113,7 @@ mysql -u tu_usuario -p tu_base_de_datos -e \
   "UPDATE admins SET password_hash='HASH_GENERADO' WHERE username='Admin';"
 ```
 
-**6. Inicia sesión en el dashboard**
+**5. Inicia sesión en el dashboard**
 
 ```
 https://tu-dominio.com/admin/login.php
