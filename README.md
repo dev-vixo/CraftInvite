@@ -57,19 +57,33 @@ Cada invitación está vinculada a un **token único de 32 caracteres hex**, as�
 **1. Clona el repositorio**
 
 ```bash
-git clone https://github.com/tu-usuario/craftinvite.git
-cd craftinvite
+git clone https://github.com/tu-usuario/tu-repo.git
 ```
 
-**2. Importa la base de datos**
+Sube los archivos a la raíz de tu servidor web (public_html, www, htdocs, etc.) de modo que quede así:
+
+```
+public_html/
+├── config/
+├── admin/
+├── assets/
+├── index.php
+└── vixodevs_tulacraft.sql
+```
+
+**2. Crea la base de datos e importa el SQL**
+
+Crea una base de datos vacía desde phpMyAdmin o CLI, luego importa:
 
 ```bash
 mysql -u tu_usuario -p tu_base_de_datos < vixodevs_tulacraft.sql
 ```
 
+O desde phpMyAdmin: selecciona tu base de datos → pestaña **Importar** → elige `vixodevs_tulacraft.sql`.
+
 **3. Configura la conexión a la base de datos**
 
-Edita `config/db.php`:
+Edita `config/db.php` con los datos de tu hosting:
 
 ```php
 $host = 'localhost';
@@ -86,19 +100,27 @@ mkdir -p assets/skins
 chmod 755 assets/skins
 ```
 
+Si usas hosting compartido con phpMyAdmin, crea la carpeta `skins` dentro de `assets/` desde el administrador de archivos de tu panel (cPanel, Plesk, etc.).
+
 **5. Cambia la contraseña del admin**
 
-Las credenciales por defecto tras importar el SQL son:
+Las credenciales por defecto que trae `vixodevs_tulacraft.sql` son:
 - **Usuario:** `Admin`
 - **Contraseña:** `Admin123`
 
-⚠️ **Cámbiala inmediatamente.** Genera un nuevo hash bcrypt ejecutando esto una sola vez en un archivo PHP temporal y luego bórralo:
+⚠️ **Cámbiala inmediatamente.** Crea un archivo PHP temporal en la raíz, ejecútalo una sola vez y luego bórralo:
 
 ```php
+<?php
 echo password_hash('tu_nueva_contraseña', PASSWORD_DEFAULT);
 ```
 
-Luego actualiza el campo `password_hash` en la tabla `admins` directamente desde phpMyAdmin o la CLI de MySQL.
+Copia el hash generado y actualiza el campo `password_hash` de la tabla `admins` en phpMyAdmin o con:
+
+```bash
+mysql -u tu_usuario -p tu_base_de_datos -e \
+  "UPDATE admins SET password_hash='HASH_GENERADO' WHERE username='Admin';"
+```
 
 **6. Inicia sesión en el dashboard**
 
