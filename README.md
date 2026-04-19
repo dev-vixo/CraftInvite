@@ -1,4 +1,4 @@
-<div align="center" height="172,5" width="316,5">
+<div align="center" height="172" width="316">
 <img src="CraftInvite.png">
 
 </div>
